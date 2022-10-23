@@ -1,2 +1,6 @@
-# Personal_Finance_Control
-Este tem como objetivo ampliar as funcionalidades iniciadas no projeto "Controle de Contas Pessoais JS_TS", aplicando tecnologias de grande escalabilidade como: Angular, Sonar, Nest, Test with Jest, Docker, MongoDB, Swagger and Rabbit MQ.
+<h2 align="center">Project: Personal Finance Control</h2>
+<h1 align="center">Angular/React + NestJS</h1>
+<hr>
+<br>
+<br>
+<h2 align="center">:construction: Project under construction... :construction:</h2>
