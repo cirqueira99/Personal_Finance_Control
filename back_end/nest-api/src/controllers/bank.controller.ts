@@ -18,7 +18,7 @@ export class BankController {
 
   @Get(':id')
   @ApiParam({name: 'id'})
-  public finOne(@Param('id') id: string): Promise<BankCreateDto>{
+  public finById(@Param('id') id: string): Promise<BankCreateDto>{
      
     return this.banckUseCase.findById(id);
   }

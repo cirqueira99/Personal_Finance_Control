@@ -13,14 +13,12 @@ export class AccountController {
   @Post()
   public create(@Body() accountCreateDto: AccountCreateDto): Promise<AccountCreateDto> {
 
-    // const valid_nameBank = 
-
     return this.accountUseCase.create(accountCreateDto);
   }
 
   @Get(':id')
   @ApiParam({name: 'id'})
-  public findOne(@Param('id') id: string): Promise<AccountCreateDto>{
+  public findById(@Param('id') id: string): Promise<AccountCreateDto>{
     
     return this.accountUseCase.findById(id); 
   }

@@ -19,6 +19,11 @@ export class BankService {
     
     return this.bankSchema.findById(id);
   }
+
+  async findOne(id: string): Promise<BankModelSchema> {
+   
+    return this.bankSchema.findOne({name: id});
+  } 
   
   async findAll() {
     

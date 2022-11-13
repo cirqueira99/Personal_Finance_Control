@@ -23,29 +23,35 @@ export class BankUseCase implements UseCase<BankCreateDto> {
     this.bankEntity = this.banckCreateMapper.mapFrom(bankCreateDto);
     
     const bank_responde = await this.bankService.create(this.bankEntity);
-
+    
+    return this.banckCreateMapper.mapTo(bank_responde);
+  }
+  
+  async findById(id: string): Promise<BankCreateDto> {
+    const bank_responde = await this.bankService.findById(id);
+    
     return this.banckCreateMapper.mapTo(bank_responde);
   }
 
-  async findById(id: string): Promise<BankCreateDto> {
-    const bank_responde = await this.bankService.findById(id);
-
+  async findOne(id: string): Promise<BankCreateDto> {
+    const bank_responde = await this.bankService.findOne(id);
+    
     return this.banckCreateMapper.mapTo(bank_responde);
   }
 
   async findAll(): Promise<BankModelSchema[]> {
-   this.banks = [];
-   this.bankEntity = new BankEntity();
-   
-   const bank_responde = await this.bankService.findAll();
-
-   bank_responde.forEach(
-    element => {
-      this.bankEntity.id = element.id;
-      this.bankEntity.name = element.name;
-      this.bankEntity.balance = element.balance;
-
-      this.banks.push( this.banckCreateMapper.mapTo( this.bankEntity ) );
+    this.banks = [];
+    this.bankEntity = new BankEntity();
+    
+    const bank_responde = await this.bankService.findAll();
+    
+    bank_responde.forEach(
+      element => {
+        this.bankEntity.id = element.id;
+        this.bankEntity.name = element.name;
+        this.bankEntity.balance = element.balance;
+        
+        this.banks.push( this.banckCreateMapper.mapTo( this.bankEntity ) );
     }
    )
 
@@ -62,7 +68,7 @@ export class BankUseCase implements UseCase<BankCreateDto> {
 
      await this.bankService.patch(id, this.bankEntity);
 
-     const bank_responde = await this.bankService.findById(id);
+     const bank_responde = await this.bankService.findOne(id);
 
      return this.banckCreateMapper.mapTo( bank_responde );
   }
@@ -72,5 +78,6 @@ export class BankUseCase implements UseCase<BankCreateDto> {
 
     return this.banckCreateMapper.mapTo( bank_responde );
   }
+
   
 }

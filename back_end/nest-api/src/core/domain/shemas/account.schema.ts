@@ -10,7 +10,7 @@ export type AccountDocument = AccountModelSchema & Document;
 @ApiTags('account')
 export class AccountModelSchema{
 
-  @Prop({ type: String, unique: true, required: true })
+  @Prop({ type: String, required: true })
   @ApiProperty()
   name: string;
 

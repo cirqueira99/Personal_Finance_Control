@@ -6,7 +6,8 @@ import { Entity } from "./entity";
 
 export abstract class UseCase<TEntity extends Entity> {
     abstract create(data: TEntity);
-    abstract findById(id: string);
+    abstract findOne(id: string);
+    abstract findOne(data: string);
     abstract findAll();
     abstract update(id: string);
     abstract patch(id: string, data: Partial<TEntity>);

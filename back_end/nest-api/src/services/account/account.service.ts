@@ -20,6 +20,10 @@ export class AccountService {
     
     return this.accountSchema.findById(id);
   }
+  async findOne(id: string):  Promise<AccountModelSchema>{
+    
+    return this.accountSchema.findOne({id});
+  }
 
   async findAll(){
     return this.accountSchema.find().exec();
